@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>5.0</version>
-    <date>2021-09-16T11:52:22Z</date>
+    <date>2021-09-16T11:58:00Z</date>
     <groups>
         <group>
             <name>Templates/Websites</name>
@@ -9,8 +9,8 @@
     </groups>
     <templates>
         <template>
-            <template>Template Futur-Tech Website General</template>
-            <name>Template Futur-Tech Website General</name>
+            <template>Template Futur-Tech Website Generic</template>
+            <name>Template Futur-Tech Website Generic</name>
             <description>https://www.aaronsaray.com/2020/zabbix-web-scenario-template</description>
             <groups>
                 <group>
@@ -42,7 +42,7 @@
     </templates>
     <triggers>
         <trigger>
-            <expression>{Template Futur-Tech Website General:web.test.fail[Check homepage].min(#2)}&gt;0</expression>
+            <expression>{Template Futur-Tech Website Generic:web.test.fail[Check homepage].min(#2)}&gt;0</expression>
             <name>Homepage failed 2+ times</name>
             <priority>HIGH</priority>
         </trigger>
@@ -56,7 +56,7 @@
                     <drawtype>FILLED_REGION</drawtype>
                     <color>1A7C11</color>
                     <item>
-                        <host>Template Futur-Tech Website General</host>
+                        <host>Template Futur-Tech Website Generic</host>
                         <key>web.test.in[Check homepage,,bps]</key>
                     </item>
                 </graph_item>
@@ -65,7 +65,7 @@
                     <color>F63100</color>
                     <yaxisside>RIGHT</yaxisside>
                     <item>
-                        <host>Template Futur-Tech Website General</host>
+                        <host>Template Futur-Tech Website Generic</host>
                         <key>web.test.fail[Check homepage]</key>
                     </item>
                 </graph_item>
