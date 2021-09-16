@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>5.0</version>
-    <date>2021-09-16T11:58:00Z</date>
+    <date>2021-09-16T11:59:30Z</date>
     <groups>
         <group>
             <name>Templates/Websites</name>
@@ -28,7 +28,7 @@
                     <application>
                         <name>Website</name>
                     </application>
-                    <delay>30m</delay>
+                    <delay>10m</delay>
                     <steps>
                         <step>
                             <name>Visit home page</name>
