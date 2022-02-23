@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>5.0</version>
-    <date>2022-01-22T20:49:37Z</date>
+    <date>2022-02-23T10:57:35Z</date>
     <groups>
         <group>
-            <name>Templates/Websites</name>
+            <name>Templates/Futur-Tech/Web</name>
         </group>
     </groups>
     <templates>
@@ -14,7 +14,7 @@
             <description>https://github.com/Futur-Tech/futur-tech-zabbix-websites</description>
             <groups>
                 <group>
-                    <name>Templates/Websites</name>
+                    <name>Templates/Futur-Tech/Web</name>
                 </group>
             </groups>
             <applications>
