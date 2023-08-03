@@ -1,0 +1,55 @@
+zabbix_export:
+  version: '6.0'
+  date: '2023-08-03T11:42:21Z'
+  groups:
+    - uuid: b4e4123eaf014664a0128bf27577fed9
+      name: Templates/Futur-Tech/Web
+  templates:
+    - uuid: 52d9fb2a62d1413090316731288590a6
+      template: 'Futur-Tech Website Generic'
+      name: 'Futur-Tech Website Generic'
+      description: 'https://github.com/Futur-Tech/futur-tech-zabbix-websites'
+      groups:
+        - name: Templates/Futur-Tech/Web
+      httptests:
+        - uuid: 6eb879a0a160401aa44f116015349afd
+          name: 'Check homepage'
+          delay: 10m
+          steps:
+            - name: 'Visit home page'
+              url: 'https://{HOST.HOST}'
+              follow_redirects: 'NO'
+          tags:
+            - tag: Application
+              value: Website
+      tags:
+        - tag: Futur-Tech
+  triggers:
+    - uuid: 570ec0a4b8ac4f368eb722f4f36d7d42
+      expression: 'min(/Futur-Tech Website Generic/web.test.fail[Check homepage],#2)>0'
+      name: 'Homepage failed 2+ times'
+      priority: HIGH
+    - uuid: d84bf3d98dfa414d819c796270fc916c
+      expression: 'last(/Futur-Tech Website Generic/web.test.rspcode[Check homepage,Visit home page])<>200'
+      name: 'Latest response code is not 200 OK'
+      opdata: 'Latest: {ITEM.LASTVALUE1}'
+      priority: WARNING
+      dependencies:
+        - name: 'Homepage failed 2+ times'
+          expression: 'min(/Futur-Tech Website Generic/web.test.fail[Check homepage],#2)>0'
+  graphs:
+    - uuid: 6e48e0d973e547cb9e5cf938003073d9
+      name: 'Speed and Failure'
+      graph_items:
+        - sortorder: '1'
+          drawtype: FILLED_REGION
+          color: 1A7C11
+          item:
+            host: 'Futur-Tech Website Generic'
+            key: 'web.test.in[Check homepage,,bps]'
+        - sortorder: '2'
+          color: F63100
+          yaxisside: RIGHT
+          item:
+            host: 'Futur-Tech Website Generic'
+            key: 'web.test.fail[Check homepage]'
